@@ -21,9 +21,9 @@
 
             <!-- Add button aligned to the right -->
             <div class="ms-auto">
-                <button class="btn btn-light" type="button" href="/add">
+                <a class="btn btn-light" type="button" href="/add">
                     <strong>Add</strong>
-                </button>
+                </a>
             </div>
         </nav>
     </header>
@@ -36,7 +36,7 @@
             <div class="col-md-4 mb-3">
                 <div class="card text-white bg-success">
                     <div class="card-body text-center">
-                        <h4 class="card-title">40</h4>
+                        <h4 class="card-title">{{ total }}</h4>
                         <p class="card-text">Total Students</p>
                     </div>
                 </div>
@@ -46,8 +46,8 @@
             <div class="col-md-4 mb-3">
                 <div class="card text-white bg-info">
                     <div class="card-body text-center">
-                        <h4 class="card-title">3</h4>
-                        <p class="card-text">New Students</p>
+                        <h4 class="card-title">{{ average }}</h4>
+                        <p class="card-text">Average results</p>
                     </div>
                 </div>
             </div>
@@ -79,10 +79,11 @@
                 <!-- Table body with student rows -->
                 <tbody>
                     <!-- Student 1 -->
+                    {% for student in all_students%}
                     <tr>
-                        <td>1</td>
-                        <td>Hilda</td>
-                        <td>RBG-001</td>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.names }}</td>
+                        <td>{{ student.student_id }}</td>
                         <td>
                             <!-- Action buttons -->
                             <a href="/" class="btn btn-sm btn-success me-1">View</a>
@@ -90,19 +91,9 @@
                             <a href="/" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
+                    {% endfor %}
 
-                    <!-- Student 2 -->
-                    <tr>
-                        <td>2</td>
-                        <td>Alpha</td>
-                        <td>RGB-002</td>
-                        <td>
-                            <!-- Action buttons -->
-                            <a href="/" class="btn btn-sm btn-success me-1">View</a>
-                            <a href="/" class="btn btn-sm btn-primary me-1">Edit</a>
-                            <a href="/" class="btn btn-sm btn-danger">Delete</a>
-                        </td>
-                    </tr>
+                
                 </tbody>
             </table>
         </div>

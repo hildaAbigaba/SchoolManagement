@@ -36,7 +36,8 @@
             </div>
             <div class="card-body">
                 <!-- Student Form -->
-                <form action="" method="post">
+                <form action="/add/" method="post">
+                    {% csrf_token %}
                     <!-- Name Field -->
                     <div class="mb-3">
                         <label for="names" class="form-label">Name</label>
